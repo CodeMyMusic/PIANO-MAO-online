@@ -1,0 +1,143 @@
+html, body, main {
+    max-height: 100%;
+    max-width: 100%;
+    height: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#playPiano {
+    padding: 0 2% 0 2%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+#piano {
+    background-color: black;
+    width: 100%;
+    height: 28vw;
+    padding: 2% 3% 3% 3%;
+    overflow: auto;
+}
+
+#all-keys {
+    background-image: url('../svg/ocean.svg');
+    height: 100%;
+    display: flex;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.octave {
+    margin: 0;
+    background: rgb(0,0,0, 0);
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.white-keys {
+    background: rgb(0,0,0, 0);
+/*     background-color: aqua; */
+}
+
+.white-keys, .black-keys {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.black-keys {
+    position: relative;
+    /*Car la div est par dessus les notes blanches*/
+    pointer-events: none;
+}
+
+.left-part, .right-part {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.black-keys .left-part {
+    grid-column: 1/4;
+    display: flex;
+    justify-content: center;
+}
+
+.black-keys .right-part {
+    position: relative;
+    grid-column: 4/8;
+} 
+
+.white-keys {
+    position: absolute;
+}
+
+.white-keys key- {
+    box-sizing: border-box;
+    border: 1px rgba(0, 0, 0, 0.7) solid;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+ .white-keys key-:hover {
+    background-color: rgb(241, 202, 255, .4) !important;
+}
+ 
+key-[class$="highlighted"] {
+    background-color: rgb(4, 0, 255);
+}
+
+
+.black-keys .keys {
+    display: grid;
+}
+
+.black-keys .left-part .keys {
+    gap: 35%;
+    grid-template-columns: repeat(2, 1fr);
+    width: 70%;
+    height: 100%;
+}
+
+.black-keys .right-part .keys {
+    gap: 20%;
+    width: 77%;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+.black-keys key- {
+    /*Seulement cette partie est écoutée*/
+    pointer-events: all;
+
+    width: 100%;
+    height: 70%;
+    background: rgb(0,0,0, .8);
+    background: linear-gradient(97deg, rgba(0,0,0,1, .8) 0%, rgba(0,0,0,1, .8) 55%, rgba(0, 0, 0, 0.5) 77%, rgba(0,0,0,1, .8) 100%); 
+    box-sizing: border-box;
+    border-right: 3px solid rgba(255, 255, 255, 0.499);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.371);
+    border-radius: 3px;
+}
+
+
+.black-keys key-:hover {
+    background: rgb(75, 0, 122, 1) !important;
+    /* background: linear-gradient(97deg, rgba(75, 0, 122, .8) 0%, rgba(75, 0, 122, .8) 55%, rgba(75, 0, 122, .5)  77%, rgba(75, 0, 122, .8) 100%);   */
+}

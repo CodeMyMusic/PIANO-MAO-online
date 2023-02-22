@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> PianoCSS </title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/javascript" src="js/jquery.min.js"></script>
+  </head>
+  <body>
+    <main>
+
+        <!-- 
+        ///// PIANO //////
+        -->
+        
+        <div id="playPiano">
+            <div id="piano">
+                <div id="all-keys">
+                    <pointer-key>
+                    </pointer-key>
+                    <div class="octave">
+                        <div class="white-keys">
+                                    <key- class="C"></key->
+                                    <key- class="D"></key->
+                                    <key- class="E"></key->
+                                    <key- class="F"></key->
+                                    <key- class="G"></key->
+                                    <key- class="A"></key->
+                                    <key- class="B"></key->
+                        </div>
+                        <div class="black-keys">
+                            <div class="left-part">  
+                                <div class="keys">
+                                    <key- class="C#/Db"></key->
+                                    <key- class="D#/Eb"></key->
+                                </div>
+                            </div>
+                            <div class="right-part">
+                                <div class="keys">
+                                    <key- class="F#/Gb"></key->
+                                    <key- class="G#/Ab"></key->
+                                    <key- class="A#/Bb"></key->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-remove-highlights">Remove highlighted keys</button>
+        <!-- 
+        ////// PIANO /////// 
+        -->
+
+    </main>  
+    <script type="application/javascript" src="js/piano.mjs"></script>  
+    <script type="application/javascript" src="js/canvas.js"></script>  
+  </body>
+</html>

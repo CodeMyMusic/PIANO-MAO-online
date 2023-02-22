@@ -1,0 +1,24 @@
+{
+  "name": "pianocss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.mjs",
+  "scripts": {
+    "start": "nodemon main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeMyMusic/PianoCSS.git"
+  },
+  "author": "Véron-Guaitella Aurèle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeMyMusic/PianoCSS/issues"
+  },
+  "homepage": "https://github.com/CodeMyMusic/PianoCSS#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "jquery": "^3.6.3"
+  }
+}
