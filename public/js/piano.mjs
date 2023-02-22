@@ -22,8 +22,8 @@ window.addEventListener('DOMContentLoaded', function () {
     
     setOctaves(NB_OCTAVES-1)
     
-    const ALL_WHITE_KEYS = $('.white-keys key-')
-    const ALL_BLACK_KEYS = $('.black-keys key-')
+    const ALL_WHITE_KEYS = $('.white-keys canvas')
+    const ALL_BLACK_KEYS = $('.black-keys canvas')
 
 
     //NO DRAG

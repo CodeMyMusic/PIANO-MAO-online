@@ -37,26 +37,15 @@ main {
 
 .octave {
     margin: 0;
-    background: rgb(0,0,0, 0);
 
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-.white-keys {
-    background: rgb(0,0,0, 0);
-/*     background-color: aqua; */
-}
-
 .white-keys, .black-keys {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    width: 100%;
-    height: 100%;
-}
-
-canvas {
     width: 100%;
     height: 100%;
 }
@@ -89,17 +78,19 @@ canvas {
     position: absolute;
 }
 
-.white-keys key- {
+.white-keys canvas {
+    height: 100%;
+    width: 100%;
     box-sizing: border-box;
     border: 1px rgba(0, 0, 0, 0.7) solid;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(145, 142, 255, 0.41);
 }
 
- .white-keys key-:hover {
+ .white-keys canvas:hover {
     background-color: rgb(241, 202, 255, .4) !important;
 }
  
-key-[class$="highlighted"] {
+canvas[class$="highlighted"] {
     background-color: rgb(4, 0, 255);
 }
 
@@ -122,7 +113,7 @@ key-[class$="highlighted"] {
 }
 
 
-.black-keys key- {
+.black-keys canvas {
     /*Seulement cette partie est écoutée*/
     pointer-events: all;
 
@@ -137,7 +128,7 @@ key-[class$="highlighted"] {
 }
 
 
-.black-keys key-:hover {
+.black-keys canvas:hover {
     background: rgb(75, 0, 122, 1) !important;
     /* background: linear-gradient(97deg, rgba(75, 0, 122, .8) 0%, rgba(75, 0, 122, .8) 55%, rgba(75, 0, 122, .5)  77%, rgba(75, 0, 122, .8) 100%);   */
 }
