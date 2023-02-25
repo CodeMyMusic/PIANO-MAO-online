@@ -2,19 +2,18 @@ const KEYS_ANIM = [0, 1, 2, 3, 4, 5, 6]
 
 const rainBowAnimation = () => {
 
-    let animateKey = (nbOctave, nbKey) => {
+    let animateKey = (nbOctave, nbKey, hue) => {
         let g = 'toColor'
-        let key = $(`#octave${nbOctave} .white-keys key-:nth-child(${nbKey+1})`);
-        let fromColor = key.css('backgroundColor')
-        let final = fromColor.replace((fromColor.match(/(\d+)/)[0]), (((fromColor.match(/(\d+)/)[0]) + 20) % 255));
-        console.log(final)
-        //let final = 'rgba('+ hue + ', 100%, 50%, .4)'
+        let key = $(`#octave${nbOctave} .white-keys canvas:nth-child(${nbKey+1})`);
+        let from = key.css('backdrop-filter')
+        console.log(from)
+        let final = `opacity(1) hue-rotate(${hue}deg)`
         return {
             targets: key[0],
             duration: 750,
             keyframes: [
-                {backgroundColor: fromColor},
-                {backgroundColor: final},
+                {backdropFilter: from},
+                {backdropFilter: final},
             ],
             direction: 'alternate',
             easing: 'easeOutCubic',
@@ -71,12 +70,16 @@ const rainBowAnimation = () => {
     }
 
     let octaveRainbow = (nbOctave) => {
+        let hue = 0
         //A delay of 500 ms between each key
         let addKey = nbKey => {
 
             if (nbKey < KEYS_ANIM.length){
+                hue = hue % 360
 
-                anime( animateKey(nbOctave, KEYS_ANIM[nbKey]) );
+                anime( animateKey(nbOctave, KEYS_ANIM[nbKey], hue) );
+
+                hue += 20
                 
                 setTimeout(addKey, 75, nbKey + 1);
             }     
@@ -85,14 +88,14 @@ const rainBowAnimation = () => {
         addKey(0)        
     }
 
-    for (let nb = 0; nb<NB_OCTAVES; nb++){
-        let hue = (nb*100) % 360; 
-        for (let nbKey of KEYS_ANIM){
-           let key = $(`#octave${nb} .white-keys key-:nth-child(${KEYS_ANIM[nbKey] + 1})`);
-           key.css('backgroundColor', 'hsla('+ hue + ', 100%, 50%, .2)')
-           hue = ((hue + 20) % 360)
-        }
-    }
+    // for (let nb = 0; nb<NB_OCTAVES; nb++){
+    //     let hue = (nb*100) % 360; 
+    //     for (let nbKey of KEYS_ANIM){
+    //        let key = $(`#octave${nb} .white-keys key-:nth-child(${KEYS_ANIM[nbKey] + 1})`);
+    //        key.css('backgroundColor', 'hsla('+ hue + ', 100%, 50%, .2)')
+    //        hue = ((hue + 20) % 360)
+    //     }
+    // }
 
     animateOctaves()
 

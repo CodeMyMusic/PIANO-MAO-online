@@ -18,6 +18,7 @@
         
         <div id="playPiano">
             <div id="piano">
+                <canvas id="piano-background"></canvas>
                 <div id="all-keys">
                     <pointer-key>
                     </pointer-key>
@@ -49,15 +50,17 @@
                     </div>
                 </div>
             </div>
+            <button class="btn-remove-highlights">Remove highlighted keys</button>
         </div>
 
-        <button class="btn-remove-highlights">Remove highlighted keys</button>
         <!-- 
         ////// PIANO /////// 
         -->
 
     </main>  
     <script type="application/javascript" src="js/piano.mjs"></script>  
+    <script type="application/javascript" src="js/anime.min.js"></script>  
+    <script type="application/javascript" src="js/OUI.js"></script>  
     <script type="application/javascript" src="js/canvas.js"></script>  
   </body>
 </html>

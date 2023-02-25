@@ -1,14 +1,70 @@
+// Ensure that canvas drawing size is its size
+function setCanvasSize(elmt){
+    elmt.width = $(elmt).width()
+    elmt.height = $(elmt).height()
+}
+
 
 window.addEventListener('DOMContentLoaded', function () {
     
     const ALL_BLACK_KEYS = $('.black-keys canvas')
+    const CANVAS = $('#piano-background')
+
+    // for (let key of ALL_BLACK_KEYS){
+    //     let keyctx = key.getContext("2d")
+    //     //key.width = 17
+    //     key.height = 500
+    //     keyctx.fillStyle = "blue";
+    //     keyctx.fillRect(0, 0, key.width, key.height);
+    // }
+
+    // draw()
+
+    // $(window).on("resize", function(){
+    //     draw()
+    // })
+
+    // function draw(){
+    //     setCanvasSize(CANVAS[0])
+
+    //     let ctx = CANVAS[0].getContext("2d")
+    //     ctx.clearRect(0, 0, CANVAS[0].width, CANVAS[0].height)
     
-    console.log(ALL_BLACK_KEYS)
-    
-    for (let key of ALL_BLACK_KEYS){
-        console.log(key)
-        let ctx = key.getContext("2d");
-        ctx.fillStyle = "blue";
-        ctx.fillRect(0, 0, key.width, key.height);
-    }
+    //     let img1 = new Image(1, 1)
+    //     img1.src = '../images/mosaic.png'
+    //     img1.onload = function(){
+
+    //         for (let key of ALL_BLACK_KEYS){
+    //             console.log(
+    //                 key,
+    //                 key.width, $(key).width(),
+    //                 key.height, $(key).height()
+    //             )
+    //             ctx.beginPath();
+    //             ctx.moveTo(10,0);
+    //             ctx.lineTo(10, $(key).height());
+    //             ctx.stroke();
+    //             ctx.beginPath();
+    //             ctx.moveTo($(key).offset().left,10);
+    //             ctx.lineTo($(key).offset().left + 41, 10);
+    //             ctx.stroke();
+    //             setCanvasSize(key)
+    //             console.log(
+    //                 key,
+    //                 key.width,
+    //                 key.height
+    //             )
+    //             let keyctx = key.getContext("2d")
+    //             key.width = 10
+    //             console.log(
+    //                 key,
+    //                 key.width, $(key).width(),
+    //                 key.height, $(key).height()
+    //             )
+    //             keyctx.drawImage(img1, 0, 0, 167, 766, 0, 0, key.width, key.height)
+    //             //ctx.fillStyle = "blue";
+    //             //ctx.fillRect($(key).offset().left, $(key).offset().top, $(key).innerWidth(), $(key).innerHeight());
+    //         }
+    //     }
+    // }
 });

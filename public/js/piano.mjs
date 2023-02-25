@@ -8,6 +8,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
     const setOctaves = nb => {
         let firstOctave = $('.octave')
+
+
     
         for (let i = 0; i<nb; i++){
             let octave = firstOctave.clone()
