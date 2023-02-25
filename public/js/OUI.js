@@ -2,22 +2,32 @@ const KEYS_ANIM = [0, 1, 2, 3, 4, 5, 6]
 
 const rainBowAnimation = () => {
 
-    let animateKey = (nbOctave, nbKey, hue) => {
-        let g = 'toColor'
-        let key = $(`#octave${nbOctave} .white-keys canvas:nth-child(${nbKey+1})`);
+    let animateKeyHue = (key, hue) => {
         let from = key.css('backdrop-filter')
-        console.log(from)
-        let final = `opacity(1) hue-rotate(${hue}deg)`
+        let to = `opacity(1) hue-rotate(${hue}deg)`
+        return [
+            {backdropFilter: from}, 
+            {backdropFilter: to}
+        ];
+    }
+
+    let animateKeyImage = (key, img) => {
+        let from = key.css('background-image')
+        let to = 'url('+img+')'
+        return [
+            {backgroundImage: from}, 
+            {backgroundImage: to}
+        ]
+    }
+
+    let animateKey = (key, keyframes) => {
         return {
             targets: key[0],
             duration: 750,
-            keyframes: [
-                {backdropFilter: from},
-                {backdropFilter: final},
-            ],
+            keyframes: keyframes,
             direction: 'alternate',
             easing: 'easeOutCubic',
-        }
+        };
     }
 /*     let animateKey = (nbOctave, key, hue) => {
         let $key = $(`#octave${nbOctave} .white-keys key-:nth-child(${key+1})`);
@@ -61,7 +71,7 @@ const rainBowAnimation = () => {
             let key = KEYS_ANIM[i]
             hue = hue % 360
             
-            octaveKey = animateNextKey(nbOctave, key, hue)
+            octaveKey = animateNextKeyHue(nbOctave, key, hue)
             
             octave.add(octaveKey, delay);
             
@@ -77,7 +87,12 @@ const rainBowAnimation = () => {
             if (nbKey < KEYS_ANIM.length){
                 hue = hue % 360
 
-                anime( animateKey(nbOctave, KEYS_ANIM[nbKey], hue) );
+                let key = $(`#octave${nbOctave} .white-keys canvas:nth-child(${nbKey+1})`);
+
+                let keyframes = animateKeyImage(key, '../images/mosaic.png')
+                //let keyframes = animateKeyHue(key, hue)
+
+                anime(animateKey(key, keyframes))
 
                 hue += 20
                 
@@ -96,6 +111,15 @@ const rainBowAnimation = () => {
     //        hue = ((hue + 20) % 360)
     //     }
     // }
+
+    for (let nb = 0; nb<NB_OCTAVES; nb++){
+        let hue = (nb*100) % 360; 
+        for (let nbKey of KEYS_ANIM){
+        let key = $(`#octave${nb} .white-keys canvas:nth-child(${KEYS_ANIM[nbKey] + 1})`);
+           key.css('background-image', 'url(../images/dauphin.jpg)')
+           hue = ((hue + 20) % 360)
+        }
+    }
 
     animateOctaves()
 
