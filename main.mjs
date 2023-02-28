@@ -8,7 +8,7 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
 app.get('/', (request, response) => {
-  response.render('pages/index')
+  response.render('pages/login')
 })
 
 app.listen(8080)
