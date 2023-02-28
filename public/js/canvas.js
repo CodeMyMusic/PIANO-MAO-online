@@ -4,11 +4,34 @@ function setCanvasSize(elmt){
     elmt.height = $(elmt).height()
 }
 
+const ALL_KEYS = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B']
+
 
 window.addEventListener('DOMContentLoaded', function () {
     
-    const ALL_BLACK_KEYS = $('.black-keys canvas')
-    const CANVAS = $('#piano-background')
+    const CANVAS_TOP = $('#piano-top-background')
+    const CANVAS_FRONT = $('#piano-front-background')
+
+    let FACES = ['#piano-top', '#white-keys-front']
+    
+    FACES = FACES.map(face => {
+        let str = face
+        let faceKeys = $(face + ' .octave')
+        let currentFace = {[str]: []}
+        faceKeys.each((octave) => {
+            currentFace[str].push(ALL_KEYS.map(key => {return $(octave).attr('id') + ' ' + key}))
+          })
+          console.log(currentFace[str])
+        return currentFace
+    })
+
+    console.log(FACES)
+    // for (let octave of octavesID){
+
+    // }
+
+
+
 
     // for (let key of ALL_BLACK_KEYS){
     //     let keyctx = key.getContext("2d")

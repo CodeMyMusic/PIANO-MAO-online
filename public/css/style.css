@@ -4,6 +4,10 @@ html, body, main {
     width: 100%;
 }
 
+body {
+    background-color: lightblue;
+}
+
 main {
 
 }
@@ -19,21 +23,41 @@ button {
     align-self: center;
 }
 
-#piano {
-    background-color: black;
+#piano3D{
+    perspective: 1500px;
+    margin: 5% 0 0 5%;
+    width: 80%;
+    height: 24vw;
+}
+
+
+#white-keys-front, #piano-top {
+    height: 100%;
     width: 100%;
-    height: 28vw;
+    height: 24vw;
     position: relative;
 }
 
-#piano-background {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-image: url('../svg/ocean.svg');
+#white-keys-front{
+    height: 10%;
 }
 
-#all-keys {
+#piano-top {
+    transform: rotateX(45deg);
+    transform-origin: center bottom;
+}
+
+canvas[id$="background"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#piano-top-background {
+
+}
+
+.all-keys {
     backdrop-filter: blur(2px);
     z-index: 2; 
     position: absolute;
@@ -120,7 +144,7 @@ canvas[class$="highlighted"] {
 }
 
 .black-keys .right-part .keys {
-    gap: 20%;
+    gap: 18%;
     width: 77%;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -130,12 +154,12 @@ canvas[class$="highlighted"] {
     /*Seulement cette partie est écoutée*/
     pointer-events: all;
     width: 100%;
-    height: 70%;
+    height: 75%;
     background: rgb(0,0,0, .8);
     background: linear-gradient(97deg, rgba(0,0,0,1, .8) 0%, rgba(0,0,0,1, .8) 55%, rgba(0, 0, 0, 0.5) 77%, rgba(0,0,0,1, .8) 100%); 
     box-sizing: border-box;
-    border-right: 3px solid rgba(255, 255, 255, 0.499);
-    border-bottom: 3px solid rgba(255, 255, 255, 0.371);
+    /* border-right: 3px solid rgba(255, 255, 255, 0.499);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.371); */
     border-radius: 3px;
 }
 

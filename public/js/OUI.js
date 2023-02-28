@@ -3,20 +3,16 @@ const KEYS_ANIM = [0, 1, 2, 3, 4, 5, 6]
 const rainBowAnimation = () => {
 
     let animateKeyHue = (key, hue) => {
-        let from = key.css('backdrop-filter')
-        let to = `opacity(1) hue-rotate(${hue}deg)`
         return [
-            {backdropFilter: from}, 
-            {backdropFilter: to}
+            {backdropFilter: key.css('backdrop-filter')}, 
+            {backdropFilter: `opacity(1) hue-rotate(${hue}deg)`}
         ];
     }
 
     let animateKeyImage = (key, img) => {
-        let from = key.css('background-image')
-        let to = 'url('+img+')'
         return [
-            {backgroundImage: from}, 
-            {backgroundImage: to}
+            {backgroundImage: key.css('background-image')}, 
+            {backgroundImage: 'url('+img+')'}
         ]
     }
 
@@ -89,8 +85,8 @@ const rainBowAnimation = () => {
 
                 let key = $(`#octave${nbOctave} .white-keys canvas:nth-child(${nbKey+1})`);
 
-                let keyframes = animateKeyImage(key, '../images/mosaic.png')
-                //let keyframes = animateKeyHue(key, hue)
+                //let keyframes = animateKeyImage(key, '../images/mosaic.png')
+                let keyframes = animateKeyHue(key, hue)
 
                 anime(animateKey(key, keyframes))
 
@@ -112,14 +108,12 @@ const rainBowAnimation = () => {
     //     }
     // }
 
-    for (let nb = 0; nb<NB_OCTAVES; nb++){
-        let hue = (nb*100) % 360; 
-        for (let nbKey of KEYS_ANIM){
-        let key = $(`#octave${nb} .white-keys canvas:nth-child(${KEYS_ANIM[nbKey] + 1})`);
-           key.css('background-image', 'url(../images/dauphin.jpg)')
-           hue = ((hue + 20) % 360)
-        }
-    }
+    // for (let nb = 0; nb<NB_OCTAVES; nb++){
+    //     let hue = (nb*100) % 360; 
+    //     for (let nbKey of KEYS_ANIM){
+    //     let key = $(`#octave${nb} .white-keys canvas:nth-child(${KEYS_ANIM[nbKey] + 1})`);
+    //     }
+    // }
 
     animateOctaves()
 
