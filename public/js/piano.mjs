@@ -1,29 +1,4 @@
-const NB_OCTAVES = 3
-
 window.addEventListener('DOMContentLoaded', function () {
-
-    /*
-    ////////// RAINBOW ANIMATION ///////////////////
-    */
-
-    let firstOctave = $('.octave')
-    const setOctaves = (first_octave, nb) => {
-    
-        for (let i = 0; i<nb; i++){
-            let octave = $(first_octave).clone()
-            octave.attr('id', 'octave'+(i+1))
-/*             octaveKeys = $('#octave'+(i+1) + ' key-')
-            addNumberToKey(octaveKeys) */
-            $(first_octave).parent().append(octave)
-        }
-    
-        $(first_octave).attr('id', 'octave0')
-    }
-    
-    for (let octave of firstOctave){
-
-        setOctaves(octave, NB_OCTAVES-1)
-    }
     
     const ALL_WHITE_KEYS_TOP = $('.white-keys canvas')
     const ALL_BLACK_KEYS_TOP = $('.black-keys canvas')
@@ -40,25 +15,25 @@ window.addEventListener('DOMContentLoaded', function () {
     //
 
     //Quand on appuie sur une note
-    ALL_WHITE_KEYS_TOP.mousedown(function(){
+    ALL_WHITE_KEYS_TOP.on('mousedown', function(){
         if ($(this).attr('class').search('highlighted') > 0){            
             $(this).removeClass('highlighted')
-            ALL_WHITE_KEYS_TOP.mouseover(function(){
+            ALL_WHITE_KEYS_TOP.on('mousedown', function(){
                 $(this).removeClass('highlighted')
-                $(this).unbind('mouseover')
+                $(this).off('mouseover')
             })
         }else{
             $(this).addClass('highlighted')
-            ALL_WHITE_KEYS_TOP.mouseover(function(){
+            ALL_WHITE_KEYS_TOP.on('mouseover', function(){
                 $(this).addClass('highlighted')
-                $(this).unbind('mouseover')
+                $(this).off('mouseover')
             })
         }
 
     })
     //Si on quitte le piano
-    $(document).mouseup(function(){
-        ALL_WHITE_KEYS_TOP.unbind('mouseover')
+    $(document).on('mouseup', function(){
+        ALL_WHITE_KEYS_TOP.off('mouseover')
     })
 
 /*     $('.remove-highlights').click(function(){
@@ -94,10 +69,9 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    $('#piano3D').on('mouseover', animPianoScale).on('mouseleave', function(){
-        pianoScale.play;
+    $('#piano3D').on('mouseover', animPianoScale.anim(true)).on('mouseleave', function(){
         setTimeout(
-            animPianoScale, 300
+            animPianoScale.anim(true), 300
         )
     })
 

@@ -118,7 +118,7 @@ const rainBowAnimation = () => {
     animateOctaves()
 
     function animateOctaves(){
-        for (let nb = 0; nb<NB_OCTAVES; nb++){
+        for (let nb = 0; nb<3; nb++){
             octaveRainbow(nb)
         }
     }
@@ -128,6 +128,7 @@ const rainBowAnimation = () => {
 }
 
 window.addEventListener('DOMContentLoaded', function () {
+    
     rainBowAnimation()
 })
 

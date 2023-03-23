@@ -1,0 +1,19 @@
+.track-octave-measure {
+    display: grid;
+    grid-template: repeat(12, 1fr) / repeat(16, 1fr);
+}
+
+.track {
+    background-color: aqua;
+    width: 100%;
+    height: 20px;
+    margin: 2%;
+}
+
+#timeline {
+    display: flex;
+    height: 15%;
+    width: 80%;
+    flex-direction: column;
+    border: 1px solid black;
+}

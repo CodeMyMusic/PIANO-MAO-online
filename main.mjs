@@ -1,7 +1,19 @@
-import { readFile } from 'fs';
-import express, { Router } from 'express' 
-
+import express from 'express'
+import http from 'http'
+import {Server} from 'socket.io'
+import * as Tone from 'tone'
 let app = express()
+const server = http.createServer(app);
+const io = new Server(server, {cors: {origin: "*"}});
+
+//let synth = new Tone.PolySynth().toDestination()
+
+io.on('connect', (socket) => {
+  console.log('A client has connected!');
+  socket.on('myKey', key => {
+    console.log('works')
+  })
+});
 
 app.set('view engine', 'ejs')
 
@@ -15,4 +27,8 @@ app.get('/login', (request, response) => {
   response.render('pages/login')
 })
 
-app.listen(8080)
+app.get('/test', (request, response) => {
+  response.render('pages/test')
+})
+
+server.listen(8085)

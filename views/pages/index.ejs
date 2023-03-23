@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <%- include('header') %>
+    <%- include('../components/head') %>
   <body>
+
       <main>
           
           <!-- 
               ///// PIANO //////
             -->
             
-        <div id="playPiano">
-                
-            <%- include('piano3D') %>
-        </div>
+        <%- include('../components/piano3D') %>
+        <button id="record">record</button>
+        <%- include('../components/timeline') %>
+        <button id="add-track"></button>
         <button class="btn-remove-highlights">Remove highlighted keys</button>
 
         <!-- 
         ////// PIANO /////// 
         -->
 
-    </main>  
-    <script type="application/javascript" src="js/anime.min.js"></script>  
-    <script type="application/javascript" src="js/piano.mjs"></script>  
-    <script type="application/javascript" src="js/OUI.js"></script>  
-    <script type="application/javascript" src="js/canvas.js"></script>  
+    </main>
+    <%- include('../components/scripts') %> 
   </body>
 </html>
