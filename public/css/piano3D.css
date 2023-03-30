@@ -31,7 +31,7 @@
 }
 
 .top-view {
-    transform: rotateX(45deg);
+    /* transform: rotateX(45deg); */
     transform-origin: center bottom;
     position: relative;
     height: 100%;

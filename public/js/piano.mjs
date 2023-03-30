@@ -14,21 +14,24 @@ window.addEventListener('DOMContentLoaded', function () {
     });
     //
 
-    //Quand on appuie sur une note
-    ALL_WHITE_KEYS_TOP.on('mousedown', function(){
-        if ($(this).attr('class').search('highlighted') > 0){            
-            $(this).removeClass('highlighted')
-            ALL_WHITE_KEYS_TOP.on('mousedown', function(){
-                $(this).removeClass('highlighted')
-                $(this).off('mouseover')
-            })
-        }else{
-            $(this).addClass('highlighted')
-            ALL_WHITE_KEYS_TOP.on('mouseover', function(){
-                $(this).addClass('highlighted')
-                $(this).off('mouseover')
-            })
-        }
+    $('.octave').each(function() {
+        $(this).find('canvas').each(function(){
+            $(this).on('mousedown', function(){
+                if ($(this).attr('class').search('highlighted') > 0){            
+                    $(this).removeClass('highlighted')
+                    ALL_WHITE_KEYS_TOP.on('mousedown', function(){
+                        $(this).removeClass('highlighted')
+                        $(this).off('mouseover')
+                    })
+                }else{
+                    $(this).addClass('highlighted')
+                    ALL_WHITE_KEYS_TOP.on('mouseover', function(){
+                        $(this).addClass('highlighted')
+                        $(this).off('mouseover')
+                    })
+                }
+        })
+    })
 
     })
     //Si on quitte le piano

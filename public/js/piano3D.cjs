@@ -10,9 +10,10 @@ $('.octave').each(function() {
     let octaveNb = $(this).attr('id')
     $(this).find('canvas').each(function(){
         $(this).on('click', function(){
-            let key = toString($(this).attr('class')) + octaveNb[octaveNb.length - 1]
+            let key = $(this).attr('data-key') + (parseInt(octaveNb[octaveNb.length - 1]) + 2)
             socket.emit('myKey', { key: key})
-            synth.triggerAttackRelease("E3", "16n")
+            console.log(key)
+            synth.triggerAttackRelease(key, "16n")
         })
     })
 })
