@@ -28,22 +28,19 @@ io.on('connect', (socket) => {
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+// app.get('/',function(req,res){
+//   res.sendFile(path.join(__dirname+'/views/pages/index.html'));
+//   //res.render('pages/index', {title: 'non'})
+// });
 
-app.get('/',function(req,res){
-  res.sendFile(path.join(__dirname+'/index.html'));
-  //__dirname : It will resolve to your project folder.
-});
-
-app.get('/', (request, response) => {
-  response.render('index')
+app.get('/login', (request, res) => {
+  res.sendFile(path.join(__dirname+'/views/pages/login.html'));
+  //res.render('pages/login')
 })
 
-app.get('/login', (request, response) => {
-  response.render('pages/login')
-})
-
-app.get('/test', (request, response) => {
-  response.render('pages/test')
+app.get('/test', (request, res) => {
+  res.sendFile(path.join(__dirname+'/views/pages/test.html'));
+  //res.render('pages/test')
 })
 
 ViteExpress.bind(app, server)
