@@ -1,6 +1,9 @@
-const KEYS_ANIM = [0, 1, 2, 3, 4, 5, 6]
+import $ from "jquery"
+import anime from "animejs"
+
 
 const rainBowAnimation = () => {
+    const KEYS_ANIM = [0, 1, 2, 3, 4, 5, 6]
 
     let animateKeyHue = (key, hue) => {
         return [
@@ -51,30 +54,6 @@ const rainBowAnimation = () => {
         }
     } */
 
-    let nextOctaveRainbow = (octave, delay) => {
-        let octaveKey = animateNextKey(0, KEYS_ANIM[0], hue)
-
-        let nbOctave = 0
-
-        // First key starting right now
-            
-        octave.add(octaveKey);
-        
-        hue += 20
-        
-        //A delay of 100 ms between each key
-        for (let i = 1; i<KEYS_ANIM.length; i++){
-            let key = KEYS_ANIM[i]
-            hue = hue % 360
-            
-            octaveKey = animateNextKeyHue(nbOctave, key, hue)
-            
-            octave.add(octaveKey, delay);
-            
-            hue += 20       
-        }  
-    }
-
     let octaveRainbow = (nbOctave) => {
         let hue = 0
         //A delay of 500 ms between each key
@@ -119,16 +98,13 @@ const rainBowAnimation = () => {
 
     function animateOctaves(){
         for (let nb = 0; nb<3; nb++){
-            octaveRainbow(nb)
+            octaveRainbow(nb + 1)
         }
     }
 
     //setInterval(animateOctaves, 2000)
 
 }
-
-window.addEventListener('DOMContentLoaded', function () {
-    
-    rainBowAnimation()
-})
+ 
+export default rainBowAnimation
 

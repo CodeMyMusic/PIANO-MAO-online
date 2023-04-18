@@ -1,26 +1,12 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8"/>
-    <link rel="icon" href="/images/favicon.ico"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title><%= title %></title>
+
+<head>
+    <load ="views/components/head.html" />
+    <title>PianoCSS </title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-  <main>
-          
-          <!-- 
-              ///// PIANO //////
-            -->
-        
-        <button id="record">record</button>
-        <button id="add-track"></button>
-        <button class="btn-remove-highlights">Remove highlighted keys</button>
+<html>
+<pug src="views/pagesPUG/index.pug" />
+<script src="./src/main.js" type="module"></script>
 
-        <!-- 
-        ////// PIANO /////// 
-        -->
-
-    </main>
-  </body>
 </html>

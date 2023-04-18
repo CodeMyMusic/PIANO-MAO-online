@@ -1,0 +1,16 @@
+#bar {
+    width: var(--width);
+    margin: var(--margin);
+    min-height: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#bar > div {
+    display: flex;
+    align-items: center;
+}
+
+#track, #song {
+    background-color: aliceblue;
+}

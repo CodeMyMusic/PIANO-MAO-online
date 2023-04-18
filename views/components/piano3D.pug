@@ -1,0 +1,40 @@
+.cadre
+  // Le piano en 3D
+  .notReady
+    h1 ⚠️ Cliquez pour lancer
+  #piano3D
+    // Boucle each
+    - for (let i=0; i<3; i++)
+      .octave(id="octave"+(i+1))
+        // La vue de dessus du piano
+        .top-view
+          canvas.background
+          .white-keys
+            canvas.C(data-key='C')
+            canvas.D(data-key='D')
+            canvas.E(data-key='E')
+            canvas.F(data-key='F')
+            canvas.G(data-key='G')
+            canvas.A(data-key='A')
+            canvas.B(data-key='B')
+          .black-keys
+            .left-part
+              .keys
+                canvas.Db(data-key='C#')
+                canvas.Eb(data-key='D#')
+            .right-part
+              .keys
+                canvas.Gb(data-key='F#')
+                canvas.Ab(data-key='G#')
+                canvas.Bb(data-key='A#')
+        //- // La vue de devant du piano
+        //- .front-view
+        //-   canvas.background
+        //-   .white-keys
+        //-     canvas.C
+        //-     canvas.D
+        //-     canvas.E
+        //-     canvas.F
+        //-     canvas.G
+        //-     canvas.A
+        //-     canvas.B

@@ -1,0 +1,271 @@
+{
+    "header": {
+      "keySignatures": [],
+      "meta": [],
+      "name": "",
+      "ppq": 96,
+      "tempos": [
+        {
+          "bpm": 130.00013000013,
+          "ticks": 0
+        }
+      ],
+      "timeSignatures": [
+          {
+              "ticks": 0,
+              "timeSignature": [
+                  4,
+                  4
+                ],
+                "measures": 0
+            }
+        ]
+    },
+    "tracks": [
+        {
+        "name": "808 Kick",
+        "channel": 0,
+        "controlChanges": {
+          "6": [
+            {
+              "number": 6,
+              "ticks": 0,
+              "time": 0,
+              "value": 0.09448818897637795
+            },
+            {
+              "number": 6,
+              "ticks": 0,
+              "time": 0,
+              "value": 0.09448818897637795
+            },
+            {
+              "number": 6,
+              "ticks": 0,
+              "time": 0,
+              "value": 0.09448818897637795
+            },
+            {
+              "number": 6,
+              "ticks": 768,
+              "time": 3.6923039999999996,
+              "value": 0.09448818897637795
+            },
+            {
+              "number": 6,
+              "ticks": 770,
+              "time": 3.7019193749999997,
+              "value": 0.09448818897637795
+            }
+          ],
+          "7": [
+            {
+              "number": 7,
+              "ticks": 0,
+              "time": 0,
+              "value": 0.7874015748031497
+            },
+            {
+              "number": 7,
+              "ticks": 0,
+              "time": 0,
+              "value": 0.7874015748031497
+            },
+            {
+              "number": 7,
+              "ticks": 0,
+              "time": 0,
+              "value": 0.7874015748031497
+            },
+            {
+              "number": 7,
+              "ticks": 0,
+              "time": 0,
+              "value": 0.7874015748031497
+            },
+            {
+              "number": 7,
+              "ticks": 768,
+              "time": 3.6923039999999996,
+              "value": 0.7874015748031497
+            },
+            {
+              "number": 7,
+              "ticks": 770,
+              "time": 3.7019193749999997,
+              "value": 0.7874015748031497
+            }
+          ],
+          "10": [
+            {
+              "number": 10,
+              "ticks": 0,
+              "time": 0,
+              "value": 0.5039370078740157
+            },
+            {
+              "number": 10,
+              "ticks": 0,
+              "time": 0,
+              "value": 0.5039370078740157
+            },
+            {
+              "number": 10,
+              "ticks": 0,
+              "time": 0,
+              "value": 0.5039370078740157
+            },
+            {
+              "number": 10,
+              "ticks": 0,
+              "time": 0,
+              "value": 0.5039370078740157
+            },
+            {
+              "number": 10,
+              "ticks": 768,
+              "time": 3.6923039999999996,
+              "value": 0.5039370078740157
+            },
+            {
+              "number": 10,
+              "ticks": 770,
+              "time": 3.7019193749999997,
+              "value": 0.5039370078740157
+            }
+          ],
+          "100": [
+            {
+              "number": 100,
+              "ticks": 0,
+              "time": 0,
+              "value": 0
+            },
+            {
+              "number": 100,
+              "ticks": 0,
+              "time": 0,
+              "value": 0
+            },
+            {
+              "number": 100,
+              "ticks": 0,
+              "time": 0,
+              "value": 0
+            },
+            {
+              "number": 100,
+              "ticks": 768,
+              "time": 3.6923039999999996,
+              "value": 0
+            },
+            {
+              "number": 100,
+              "ticks": 770,
+              "time": 3.7019193749999997,
+              "value": 0
+            }
+          ],
+          "101": [
+            {
+              "number": 101,
+              "ticks": 0,
+              "time": 0,
+              "value": 0
+            },
+            {
+              "number": 101,
+              "ticks": 0,
+              "time": 0,
+              "value": 0
+            },
+            {
+              "number": 101,
+              "ticks": 0,
+              "time": 0,
+              "value": 0
+            },
+            {
+              "number": 101,
+              "ticks": 768,
+              "time": 3.6923039999999996,
+              "value": 0
+            },
+            {
+              "number": 101,
+              "ticks": 770,
+              "time": 3.7019193749999997,
+              "value": 0
+            }
+          ]
+        },
+        "pitchBends": [
+          {
+            "ticks": 0,
+            "time": 0,
+            "value": 0
+          },
+          {
+            "ticks": 0,
+            "time": 0,
+            "value": 0
+          },
+          {
+            "ticks": 0,
+            "time": 0,
+            "value": 0
+          },
+          {
+            "ticks": 0,
+            "time": 0,
+            "value": 0
+          },
+          {
+            "ticks": 768,
+            "time": 3.6923039999999996,
+            "value": 0
+          },
+          {
+            "ticks": 770,
+            "time": 3.7019193749999997,
+            "value": 0
+          }
+        ],
+        "instrument": {
+          "family": "piano",
+          "number": 0,
+          "name": "acoustic grand piano"
+        },
+        "notes": [
+          {
+            "duration": 0.23076899999999997,
+            "durationTicks": 48,
+            "midi": 80,
+            "name": "G#5",
+            "ticks": 48,
+            "time": 0.23076899999999997,
+            "velocity": 0.7874015748031497
+          },
+          {
+            "duration": 0.230769,
+            "durationTicks": 48,
+            "midi": 81,
+            "name": "A5",
+            "ticks": 228,
+            "time": 1.09615275,
+            "velocity": 0.7874015748031497
+          },
+          {
+            "duration": 0.230769,
+            "durationTicks": 48,
+            "midi": 83,
+            "name": "B5",
+            "ticks": 420,
+            "time": 2.01922875,
+            "velocity": 0.7874015748031497
+          }
+        ],
+        "endOfTrackTicks": 770
+      }
+    ]
+  }

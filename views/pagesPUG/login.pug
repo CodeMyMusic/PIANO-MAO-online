@@ -1,0 +1,11 @@
+head
+  include ../components/head.pug
+body
+  main
+    p Je suis un texte
+    include ../components/piano3D.pug
+    div
+      input(placeholder='Login')
+      input(placeholder='Password')
+      button Se connecter
+  script(src='src/main.js' type='module')

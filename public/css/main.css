@@ -1,0 +1,9 @@
+@import url(style.css);
+@import url(piano3D.css);
+@import url(trackView.css);
+@import url(bar/bar.css);
+
+:root {
+    --width: 80%;
+    --margin: 5% 0 0 5%;
+}

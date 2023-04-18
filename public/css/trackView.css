@@ -1,0 +1,23 @@
+.trackView {
+    width: var(--width);
+    height: 20%;
+    margin: var(--margin);
+
+    display: flex;
+}
+
+.all-labels {
+    width: 30px;
+    height: 100%;
+}
+
+.label {
+    height: 20px;
+    border: 2px rgb(152, 65, 65) solid;
+}
+
+.track-selected {
+    background-color: aqua;
+    width: 100%;
+    height: 100%;
+}
