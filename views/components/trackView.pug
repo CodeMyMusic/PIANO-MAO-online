@@ -1,5 +1,15 @@
 .trackView
-    .all-labels 
-        - for (let i=0;i<6;i++)
-            .label(id="label"+(i+1))
-    .track-selected
+    .all-labels
+        .all-labels-layout 
+            - for (let i=0;i<6;i++)
+                .labelLayout(id="lbLayout"+(i+1))
+                    .curved-bottom-left
+                        .layerColor
+                        .bottom-left-radius
+                    .curved-top-right
+                        .layerColor(style="border-bottom-left-radius: 5px")
+                        .top-right-radius
+        .all-labels-user-select
+            - for (let i=0;i<6;i++)
+                .label(id="label"+(i+1))=(i+1)
+    .track-content

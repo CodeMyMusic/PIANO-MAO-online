@@ -31,7 +31,6 @@ function playSynth(){
             $(this).find('canvas').each(function(){
                 $(this).on('click', function(){
                     let key = $(this).attr('data-key') + (parseInt(octaveNb[octaveNb.length - 1]) + 2)
-                    sessionStorage.setItem()
                     synth.triggerAttackRelease(key, "16n")
                 })
             })

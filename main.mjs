@@ -14,7 +14,7 @@ let connection = mysql.createConnection({
   database : 'piano'
 });
  
-connection.connect();
+// connection.connect();
 
 const __filename = fileURLToPath(import.meta.url);
 
