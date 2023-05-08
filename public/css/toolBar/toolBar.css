@@ -1,4 +1,4 @@
-#bar {
+#toolBar {
     position: absolute;
     bottom: 10%;
     width: var(--width);
@@ -10,14 +10,14 @@
     font-size: 3vw;
 }
 
-#bar > div {
+#toolBar > div {
     display: flex;
     align-items: center;
     height: 100%;
     flex: 1;
 }
 
-#bar > div > div {
+#toolBar > div > div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,7 +31,7 @@
     border-radius: 20px;
 }
 
-#bar > div > div:hover {
+#toolBar > div > div:hover {
     z-index: 2;
     background-color: #ffffff;
     outline: 2px rgb(251, 0, 255) solid;
