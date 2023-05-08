@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv, ConfigEnv } from "vite"
+import { defineConfig, loadEnv } from "vite"
 import pugPlugin from "vite-plugin-pug"
 import injectHTML from 'vite-plugin-html-inject';
 

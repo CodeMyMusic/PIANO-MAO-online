@@ -1,13 +1,17 @@
-.trackView {
-    width: var(--width);
-    height: 20%;
-    margin: var(--margin);
-
+.all-labels {
     display: flex;
+    width: 100px;
+    height: 100%;
 }
 
-.all-labels {
-    width: 30px;
+.behindLabels {
+    flex: 1;
+    height: 100%;
+    position: relative;
+}
+
+.front-all-labels {
+    flex: 2;
     height: 100%;
     position: relative;
 }
@@ -26,15 +30,24 @@
     width: 100%;
 }
 
+.covering-label {
+    z-index: 9;
+    content: "";
+    position: absolute;
+    width: 100%;
+}
+
 .all-labels-user-select {
     width: 100%;
     height: 100%;
     position: relative;
     z-index: 10;
-    display: grid;
+    display: flex;
+    flex-direction: column;
 }
 
 .label {
+    flex: 1;
     width: 100%;
     display: flex;
     align-items: center;
@@ -61,21 +74,11 @@
 }
 
 .top-right-radius {
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 
 }
 
-.bottom-left-radius {
-    border-bottom-left-radius: 5px;
-}
-
-
-
-.track-content {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    border: 10px solid;
-    background-color: lightgray;
+.bottom-left-radius, .curved-top-right .layerColor {
+    border-bottom-left-radius: 10px;
 }
