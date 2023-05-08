@@ -7,6 +7,12 @@ import {Server} from 'socket.io'
 import ViteExpress from 'vite-express'
 import mysql from 'mysql'
 
+import * as fs from 'node:fs';
+
+// POUR RECUPERER OU EXPORTER MIDI
+import pkg from '@tonejs/midi'
+const {Midi} = pkg;
+
 let connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
@@ -14,7 +20,7 @@ let connection = mysql.createConnection({
   database : 'piano'
 });
  
-// connection.connect();
+connection.connect();
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -31,13 +37,37 @@ const io = new Server(server, {cors: {origin: "*"}});
 
 io.on('connect', (socket) => {
   console.log('A client has connected!');
-  socket.on('myKey', key => {
-    console.log('works' + key)
-    connection.query('SELECT * FROM `piste`', function (error, results, fields) {
-      if (error) throw error;
-      console.log('The solution is: ', results);
-    });
-  })
+  // socket.on("myKey", key => {
+  //   console.log('works' + key)
+  //   connection.query('SELECT * FROM `piste`', function (error, results, fields) {
+  //     if (error) throw error;
+  //     console.log('The solution is: ', results);
+  //   });
+  // })
+  socket.on('toMidiFile', NOTES => {
+    // create a new midi file
+    let midi = new Midi()
+    // add a track
+    const track = midi.addTrack()
+    NOTES.forEach(note => {
+        track.addNote(note)
+    })
+
+    // write the outpu
+    let midiFile = Buffer.from(midi.toArray());
+
+  // Execute INSERT query to store buffer in database
+  connection.query('INSERT INTO piste SET ?', { data: fileBuffer }, (error, results, fields) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log('File stored in database successfully!');
+    }
+    // Close MySQL connection
+    connection.end();
+  });
+
+  });
 });
 
 app.set('view engine', 'ejs');
