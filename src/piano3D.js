@@ -2,12 +2,14 @@ import $, { event } from "jquery"
 
 import {io} from "socket.io-client"
 
+import Track from "./MAO/Track";
+
 let Tone;
 let synth;
 
 const socket = io();
 
-socket.on('connect', () => {
+socket.on('connection', () => {
   console.log('Connected to server!');
 });
 
@@ -71,6 +73,7 @@ function record(){
     $('#record').on('click', function(){
         RECORD = false
         socket.emit("toMidiFile", NOTES)
+        socket.on("res", midi => console.log(midi))
     })
 }
 

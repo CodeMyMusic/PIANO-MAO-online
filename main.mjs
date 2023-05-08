@@ -35,7 +35,7 @@ const io = new Server(server, {cors: {origin: "*"}});
 
 //let synth = new Tone.PolySynth().toDestination()
 
-io.on('connect', (socket) => {
+io.on('connection', (socket) => {
   console.log('A client has connected!');
   // socket.on("myKey", key => {
   //   console.log('works' + key)
@@ -44,6 +44,7 @@ io.on('connect', (socket) => {
   //     console.log('The solution is: ', results);
   //   });
   // })
+  socket.emit("res", "d")
   socket.on('toMidiFile', NOTES => {
     // create a new midi file
     let midi = new Midi()
@@ -53,11 +54,11 @@ io.on('connect', (socket) => {
         track.addNote(note)
     })
 
-    // write the outpu
     let midiFile = Buffer.from(midi.toArray());
 
+
   // Execute INSERT query to store buffer in database
-  connection.query('INSERT INTO piste SET ?', { data: fileBuffer }, (error, results, fields) => {
+  connection.query('INSERT INTO piste SET ?', { file: midiFile }, (error, results, fields) => {
     if (error) {
       console.error(error);
     } else {
