@@ -1,15 +1,30 @@
 .trackView
     .all-labels
-        .all-labels-layout 
-            - for (let i=0;i<6;i++)
-                .labelLayout(id="lbLayout"+(i+1))
-                    .curved-bottom-left
-                        .layerColor
-                        .bottom-left-radius
-                    .curved-top-right
-                        .layerColor(style="border-bottom-left-radius: 5px")
-                        .top-right-radius
-        .all-labels-user-select
-            - for (let i=0;i<6;i++)
-                .label(id="label"+(i+1))=(i+1)
+        .behindLabels 
+            .all-labels-layout 
+                - for (let i=0;i<6;i++)
+                    .labelLayout(id="lbLayout"+(i+1))
+                        .curved-bottom-left
+                            .layerColor
+                            .bottom-left-radius
+                        .curved-top-right
+                            .layerColor
+                            .top-right-radius
+            .all-labels-user-select
+                - for (let i=0;i<6;i++)
+                    .label(id="lb"+(i+1))=(i+1)
+        .front-all-labels
+            .all-labels-layout 
+                - for (let i=0;i<6;i++)
+                    .labelLayout(id="lbLayout"+(i+1))
+                        .curved-bottom-left
+                            .layerColor
+                            .bottom-left-radius
+                        .curved-top-right
+                            .layerColor
+                            .top-right-radius
+            .covering-label
+            .all-labels-user-select
+                - for (let i=0;i<6;i++)
+                    .label(id="lb"+(i+1))=(i+1)
     .track-content

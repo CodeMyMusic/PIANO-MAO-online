@@ -1,0 +1,12 @@
+@import url(labels.css);
+@import url(trackContent.css);
+
+.trackView {
+    width: var(--width);
+    height: 40%;
+    margin: var(--margin);
+
+    margin-left: 10%;
+
+    display: flex;
+}
