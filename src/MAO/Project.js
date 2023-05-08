@@ -1,16 +1,32 @@
 import { v4 as uuidv4 } from 'uuid';
+import $ from 'jquery'
 
 class Project {
-    constructor(name = "Sans titre", tempo = 120, theme = "default", tracks = []){
+    constructor(title = "Sans titre", tempo = 120, theme = "default", tracks = []){
         this.id = uuidv4()
-        this.name = name
+        this.title = title
         this.tempo = tempo
         this.theme = theme
         this.tracks = tracks
     }
 
-    display(){
+    updateState(){
+        $('#title').attr('placeholder', this.title)
+        $('#tempo').attr('placeholder', this.tempo)
+    }
+
+    listenState(){
+        $('#title').on('change', function(text){
+            console.log('bg')
+        })
     }
 }
 
-export default Project
+function startEmptyProject(){
+    let emptyProject = new Project()
+    emptyProject.updateState()
+    emptyProject.listenState()
+}
+
+export default Project;
+export {startEmptyProject}

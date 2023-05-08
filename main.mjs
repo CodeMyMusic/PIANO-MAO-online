@@ -5,22 +5,16 @@ import express from 'express'
 import http from 'http'
 import {Server} from 'socket.io'
 import ViteExpress from 'vite-express'
-import mysql from 'mysql'
+
+// UN PROJET
+
 
 import * as fs from 'node:fs';
 
 // POUR RECUPERER OU EXPORTER MIDI
 import pkg from '@tonejs/midi'
 const {Midi} = pkg;
-
-let connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'Hellohi1231#',
-  database : 'piano'
-});
  
-connection.connect();
 
 const __filename = fileURLToPath(import.meta.url);
 

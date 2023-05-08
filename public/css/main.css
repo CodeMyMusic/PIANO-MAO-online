@@ -1,4 +1,16 @@
 @import url(style.css);
+@import url(clearStyle/clear.css);
+@import url(input/input.css);
 @import url(piano3D.css);
 @import url(trackView.css);
 @import url(bar/bar.css);
+
+#title {
+    margin: var(--margin);
+    margin-top: 2%;
+    background-color: aliceblue;
+    height: 5%;
+    width: auto;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
