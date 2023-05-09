@@ -17,7 +17,7 @@
     flex: 1;
 }
 
-#bar > div > div, #bar input {
+#bar > div > div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,7 +31,7 @@
     border-radius: 20px;
 }
 
-#bar > div > div:hover, #bar input:hover  {
+#bar > div > div:hover  {
     z-index: 2;
     background-color: #ffffff;
     outline: 2px rgb(251, 0, 255) solid;

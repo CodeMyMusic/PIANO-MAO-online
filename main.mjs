@@ -31,13 +31,6 @@ const io = new Server(server, {cors: {origin: "*"}});
 
 io.on('connection', (socket) => {
   console.log('A client has connected!');
-  // socket.on("myKey", key => {
-  //   console.log('works' + key)
-  //   connection.query('SELECT * FROM `piste`', function (error, results, fields) {
-  //     if (error) throw error;
-  //     console.log('The solution is: ', results);
-  //   });
-  // })
   socket.emit("res", "d")
   socket.on('toMidiFile', NOTES => {
     // create a new midi file

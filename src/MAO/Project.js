@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import $ from 'jquery'
+import { log } from 'tone/build/esm/core/util/Debug';
 
 class Project {
     constructor(title = "Sans titre", tempo = 120, theme = "default", tracks = []){
@@ -10,22 +11,55 @@ class Project {
         this.tracks = tracks
     }
 
-    updateState(){
-        $('#title').attr('placeholder', this.title)
-        $('#tempo').attr('placeholder', this.tempo)
+    loadState(){
+        $('#title').html(this.title)
+        $('#tempo').html(this.tempo)
     }
 
-    listenState(){
-        $('#title').on('change', function(text){
-            console.log('bg')
+    listenUpdate(){
+        $('#title').on('click', () =>{
+            $('#title').on('keydown', ()=>{
+                if ($('#title').html().length > this.title.length){
+                    this.title = $('#title').html()
+                    console.log(this.title)
+                }
+            })
+            $('#title').on('mouseleave', () => {
+                $(document).on('click', e => {
+                    e.stopImmediatePropagation()
+                    this.title = $('#title').html()
+                    console.log(this.title);
+                })
+            })
         })
+        $('#tempo').on('click', () =>{ 
+            $('#tempo').on('keydown', ()=>{
+                if ($('#tempo').html().length > this.tempo.length){
+                    this.tempo = $('#tempo').html()
+                    console.log(this.tempo);
+                }    
+            })
+       
+            $('#tempo').on('mouseleave', () => {
+                $(document).on('click', (e) => {
+                    e.stopImmediatePropagation()
+                    this.tempo = $('#tempo').html()
+                console.log(this.tempo);
+                })
+            })
+        })
+    }
+
+    saveProject(tracks){
+        this.title = $('#title').html()
+        this.tempo = $('#tempo').html()
     }
 }
 
 function startEmptyProject(){
     let emptyProject = new Project()
-    emptyProject.updateState()
-    emptyProject.listenState()
+    emptyProject.loadState()
+    emptyProject.listenUpdate()
 }
 
 export default Project;

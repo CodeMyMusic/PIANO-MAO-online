@@ -1,8 +1,0 @@
-input {
-    font-size: large;
-}
-
-input::placeholder {
-    color: black;
-    font-style: italic;
-}

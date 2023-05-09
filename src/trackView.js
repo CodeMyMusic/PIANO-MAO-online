@@ -9,7 +9,7 @@ let color = FIRST_LABEL_COLOR
 const LABEL_HEIGHT = 100/NB_INTERLAYERS
 
 function trackView(){
-    $('.track-content').css('border-color', FIRST_LABEL_COLOR)
+    $('#track-content').css('border-color', FIRST_LABEL_COLOR)
     for (let i=0; i<6; i++){
         LABELS_COLORS.push(color)
         color = rotation(color, 50)
@@ -38,7 +38,7 @@ function createLabels(){
         }
         $(label).find('.curved-bottom-left').find('.layerColor').css('backgroundColor', LABELS_COLORS[i+1])
         $('.label:nth-child('+ (i+1) +')').on('click', function(){
-            $('.track-content').css('border-color', LABELS_COLORS[i])
+            $('#track-content').css('border-color', LABELS_COLORS[i])
         })
     })
 }

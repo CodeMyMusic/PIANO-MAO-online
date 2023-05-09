@@ -27,4 +27,6 @@ function selectFromTable(tableName, columns, conditions) {
       console.log(`Selected ${results.length} row(s) from ${tableName} table`);
       console.log(results);
     });
-  }
+}
+
+export default selectFromTable

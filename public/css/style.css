@@ -12,3 +12,7 @@ html, body, main {
 html {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+h1 {
+    font-size: large;
+}

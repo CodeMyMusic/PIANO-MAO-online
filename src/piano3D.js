@@ -31,14 +31,25 @@ function playSynth(){
             Tone = module
             synth = new Tone.PolySynth().toDestination()
 
-            record()
-
-            // recorder()
+            listenNotes()
+            // record()
         })
         $('#piano3D').on('click', function () {
             ready.remove();
         })
        
+    })
+}
+
+function listenNotes(){
+    $('.octave').each(function() {
+        let octaveNb = $(this).attr('id')
+        $(this).find('canvas').each(function(){
+            $(this).on('mousedown', function(){
+                let key = $(this).attr('data-key') + (parseInt(octaveNb[octaveNb.length - 1]) + 2)
+                synth.triggerAttackRelease(key, "16n")
+            })
+        })
     })
 }
 
@@ -52,65 +63,25 @@ function record(){
             let absoluteTime;
             let time;
             $(this).on('mousedown', function(){
+                key = $(this).attr('data-key') + (parseInt(octaveNb[octaveNb.length - 1]) + 2)
                 absoluteTime = Date.now()
                 time = (absoluteTime - timeStartRecord) / 1000;
-                key = $(this).attr('data-key') + (parseInt(octaveNb[octaveNb.length - 1]) + 2)
-                synth.triggerAttackRelease(key, "16n")
             })
-            if (record){
-                $(this).on('mouseup', function(){
-                    NOTES.push(
-                        {
-                            name: key,
-                            time: time,
-                            duration: (Date.now() - absoluteTime) / 1000
-                        }
-                    )
-                })
-            }
-        })
+            $(this).on('mouseup', function(){
+                NOTES.push(
+                    {
+                        name: key,
+                        time: time,
+                        duration: (Date.now() - absoluteTime) / 1000
+                    }
+                )
+            })
+        })   
     })
     $('#record').on('click', function(){
-        RECORD = false
         socket.emit("toMidiFile", NOTES)
         socket.on("res", midi => console.log(midi))
     })
-}
-
-function recorder() {
-    // convert the sequence to a JSON object
-    const data = {
-        header: {
-            name: 'My sequence',
-            PPQ: Tone.Transport.PPQ,
-            tempos: [{ time: 0, bpm: Tone.Transport.bpm.value }],
-            timeSignatures: [{ time: 0, numerator: 4, denominator: 4 }],
-        },
-        duration: sequence.duration,
-        tracks: [
-            {
-                name: '',
-                channel: 0,
-                notes: sequence.at(0).map(note => ({
-                    midi: Tone.Frequency(note, 'midi').toMidi(),
-                    time: Tone.Ticks(note.time).toSeconds(),
-                    ticks: note.time,
-                    name: note.toString(),
-                    pitch: note.pitch,
-                    octave: note.octave,
-                    velocity: note.velocity,
-                    duration: Tone.Ticks(note.duration).toSeconds(),
-                })),
-                controlChanges: {},
-                instrument: {},
-            },
-        ],
-    };
-
-    // convert the data object to a JSON string and save it as a file
-    const json = JSON.stringify(data);
-    const blob = new Blob([json], { type: 'application/json' });
-    window.saveAs(blob, 'my-sequence.json');
 }
 
 export default playSynth
