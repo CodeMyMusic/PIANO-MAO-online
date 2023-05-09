@@ -31,8 +31,9 @@ function playSynth(){
             Tone = module
             synth = new Tone.PolySynth().toDestination()
 
-            listenNotes()
-            // record()
+            playNotes(synth)
+
+            $('#record').on('click', recordNotes)
         })
         $('#piano3D').on('click', function () {
             ready.remove();
@@ -41,7 +42,7 @@ function playSynth(){
     })
 }
 
-function listenNotes(){
+function playNotes(synth){
     $('.octave').each(function() {
         let octaveNb = $(this).attr('id')
         $(this).find('canvas').each(function(){
@@ -53,15 +54,15 @@ function listenNotes(){
     })
 }
 
-function record(){
-    let NOTES = []
+function recordNotes(){
+    const NOTES = []
     let timeStartRecord = Date.now();
+    let key;
+    let absoluteTime;
+    let time;
     $('.octave').each(function() {
         let octaveNb = $(this).attr('id')
         $(this).find('canvas').each(function(){
-            let key;
-            let absoluteTime;
-            let time;
             $(this).on('mousedown', function(){
                 key = $(this).attr('data-key') + (parseInt(octaveNb[octaveNb.length - 1]) + 2)
                 absoluteTime = Date.now()
@@ -76,11 +77,12 @@ function record(){
                     }
                 )
             })
-        })   
+        })
     })
     $('#record').on('click', function(){
-        socket.emit("toMidiFile", NOTES)
-        socket.on("res", midi => console.log(midi))
+        console.log(NOTES)
+        // socket.emit("toMidiFile", NOTES)
+        // socket.on("res", midi => console.log(midi))
     })
 }
 
