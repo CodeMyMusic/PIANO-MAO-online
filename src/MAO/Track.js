@@ -7,6 +7,10 @@ class Track {
 
         Track.nextId++
     }
+
+    deleteTrack(){
+        
+    }
 }
 
 export default Track

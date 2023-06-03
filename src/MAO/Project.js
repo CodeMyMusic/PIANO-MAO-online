@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
 import $ from 'jquery'
-import { log } from 'tone/build/esm/core/util/Debug';
 
 class Project {
     constructor(title = "Sans titre", tempo = 120, theme = "default", tracks = []){
@@ -51,8 +50,7 @@ class Project {
     }
 
     saveProject(tracks){
-        this.title = $('#title').html()
-        this.tempo = $('#tempo').html()
+        
     }
 }
 
